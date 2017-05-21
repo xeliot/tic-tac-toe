@@ -1,8 +1,42 @@
-<html>
-  <head>
-    <title></title>
-    <meta content="">
-    <style></style>
-  </head>
-  <body></body>
+<!doctype html>
+<html lang="en">
+  <meta charset="UTF-8">
+  <title>Tic-Tac-Toe</title>
 </html>
+
+<script>
+
+var canvas, ctx;
+
+window.onload = function main(){
+
+  canvas = document.createElement("canvas");
+  canvas.width = canvas.height = 200;
+  ctx = cavas.getContext("2d");
+
+  document.body.appendChild(canvas);
+  
+  init();
+  tick();
+}
+
+function init(){
+
+}
+
+function tick(){
+  window.requestAnimationFrame(tick);
+
+  update();
+  render();
+}
+
+function update(){
+
+}
+
+function render(){
+
+}
+
+</script>
