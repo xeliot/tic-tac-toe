@@ -4,6 +4,18 @@
   <title>Tic-Tac-Toe</title>
 </html>
 
+<style>
+  canvas{
+    border: 1px solid #000;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+</style>
+
 <script>
 
 var canvas, ctx;
@@ -12,7 +24,7 @@ window.onload = function main(){
 
   canvas = document.createElement("canvas");
   canvas.width = canvas.height = 200;
-  ctx = cavas.getContext("2d");
+  ctx = canvas.getContext("2d");
 
   document.body.appendChild(canvas);
   
