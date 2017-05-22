@@ -19,6 +19,7 @@
 <script>
 
 var canvas, ctx;
+var data;
 
 window.onload = function main(){
 
@@ -33,7 +34,7 @@ window.onload = function main(){
 }
 
 function init(){
-
+  data = new Tile(20, 20);
 }
 
 function tick(){
@@ -48,7 +49,37 @@ function update(){
 }
 
 function render(){
+  data.draw(ctx);
+}
 
+function Tile(x, y){
+
+  var x = x, y = y;
+
+  var tile = Tile.BLANK;
+
+  if(tile==null){
+
+    var _c = document.createElement("canvas");
+    _c.width = _c.height = 100;
+    _ctx = _c.getContext("2d");
+
+    _ctx.fillStyle = "skyblue";
+
+    _ctx.fillRect(0, 0, 100, 100);
+    Tile.BLANK = new Image();
+    Tile.BLANK.src = _c.toDataURL();
+    
+    tile = Tile.BLANK;
+  }
+
+  this.update = function(){
+
+  }
+
+  this.draw = function(ctx){
+    ctx.drawImage(tile, x, y);
+  }
 }
 
 </script>
