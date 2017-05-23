@@ -70,11 +70,14 @@ function Tile(x, y){
     Tile.BLANK = new Image();
     Tile.BLANK.src = _c.toDataURL();
     
-    _ctx.fillStyle(0, 0, 100, 100);
+    _ctx.fillRect(0, 0, 100, 100);
+    _ctx.beginPath();
+    _ctx.arc(50, 50, 30, 0, 2*Math.PI);
+    _ctx.stroke();
     Tile.NOUGHT = new Image();
     Tile.NOUGHT.src = _c.toDataURL();
 
-    tile = Tile.BLANK;
+    tile = Tile.NOUGHT;
   }
 
   this.update = function(){
