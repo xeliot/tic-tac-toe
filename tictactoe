@@ -70,6 +70,10 @@ function Tile(x, y){
     Tile.BLANK = new Image();
     Tile.BLANK.src = _c.toDataURL();
     
+    _ctx.fillStyle(0, 0, 100, 100);
+    Tile.NOUGHT = new Image();
+    Tile.NOUGHT.src = _c.toDataURL();
+
     tile = Tile.BLANK;
   }
 
