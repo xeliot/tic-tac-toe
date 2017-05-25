@@ -13,7 +13,9 @@ setup = function() {
     canvas.width = 1200;
     canvas.height = 720;
     
-
+    img = new Image();
+    img.onload = onImageLoad;
+    img.src = "tripletown.png";
 };
 
 onImageLoad = function(){
