@@ -66,6 +66,7 @@ function Tile(x, y){
 
     _ctx.fillStyle = "skyblue";
     _ctx.lineWidth = 4;
+    _ctx.strokeStyle = "white";
 
     _ctx.fillRect(0, 0, 100, 100);
     Tile.BLANK = new Image();
