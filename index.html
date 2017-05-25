@@ -6,6 +6,7 @@
 
 var canvas = null;
 var context = null;
+var img = null;
 
 setup = function() {
     canvas = document.getElementById("my_canvas");
@@ -19,7 +20,8 @@ setup = function() {
 };
 
 onImageLoad = function(){
-    console.log("IMAGE")
+    console.log("IMAGE");
+    context.drawImage(img, 192, 192);
 };
 
 </script>
