@@ -6,15 +6,17 @@
   </head>
 
   <body>
-    <canvas id="canvas1" width="50" height="50" onclick="loop(1)"></canvas>
-    <canvas id="canvas2" width="50" height="50" onclick="loop(2)"></canvas>
-    <canvas id="canvas3" width="50" height="50" onclick="loop(3)"></canvas><br />
-    <canvas id="canvas4" width="50" height="50" onclick="loop(4)"></canvas>
-    <canvas id="canvas5" width="50" height="50" onclick="loop(5)"></canvas>
-    <canvas id="canvas6" width="50" height="50" onclick="loop(6)"></canvas><br />
-    <canvas id="canvas7" width="50" height="50" onclick="loop(7)"></canvas>
-    <canvas id="canvas8" width="50" height="50" onclick="loop(8)"></canvas>
-    <canvas id="canvas9" width="50" height="50" onclick="loop(9)"></canvas>
+    <div id="canvasDiv">
+      <canvas id="canvas1" width="50" height="50" onclick="loop(1)"></canvas>
+      <canvas id="canvas2" width="50" height="50" onclick="loop(2)"></canvas>
+      <canvas id="canvas3" width="50" height="50" onclick="loop(3)"></canvas><br />
+      <canvas id="canvas4" width="50" height="50" onclick="loop(4)"></canvas>
+      <canvas id="canvas5" width="50" height="50" onclick="loop(5)"></canvas>
+      <canvas id="canvas6" width="50" height="50" onclick="loop(6)"></canvas><br />
+      <canvas id="canvas7" width="50" height="50" onclick="loop(7)"></canvas>
+      <canvas id="canvas8" width="50" height="50" onclick="loop(8)"></canvas>
+      <canvas id="canvas9" width="50" height="50" onclick="loop(9)"></canvas>
+    </div>
 
     <a href="tictactoe.html">PLAY AGAIN!</a>
   </body>
