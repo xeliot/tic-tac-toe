@@ -1,94 +1,21 @@
-<!doctype html>
-<html lang="en">
-  <meta charset="UTF-8">
-  <title>Tic-Tac-Toe</title>
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css"  href="design.css" />
+  </head>
+
+  <body>
+    <canvas id="canvas1" width="50" height="50" onclick="loop(1)"></canvas>
+    <canvas id="canvas2" width="50" height="50" onclick="loop(2)"></canvas>
+    <canvas id="canvas3" width="50" height="50" onclick="loop(3)"></canvas><br />
+    <canvas id="canvas4" width="50" height="50" onclick="loop(4)"></canvas>
+    <canvas id="canvas5" width="50" height="50" onclick="loop(5)"></canvas>
+    <canvas id="canvas6" width="50" height="50" onclick="loop(6)"></canvas><br />
+    <canvas id="canvas7" width="50" height="50" onclick="loop(7)"></canvas>
+    <canvas id="canvas8" width="50" height="50" onclick="loop(8)"></canvas>
+    <canvas id="canvas9" width="50" height="50" onclick="loop(9)"></canvas>
+
+    <a href="tictactoe.html">PLAY AGAIN!</a>
+  </body>
 </html>
-
-<style>
-  canvas{
-    border: 1px solid #000;
-    position: absolute;
-    margin: auto;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-  }
-</style>
-
-<script>
-
-var canvas, ctx;
-var data;
-
-window.onload = function main(){
-
-  canvas = document.createElement("canvas");
-  canvas.width = canvas.height = 200;
-  ctx = canvas.getContext("2d");
-
-  document.body.appendChild(canvas);
-  
-  init();
-  tick();
-}
-
-function init(){
-  data = new Tile(20, 20);
-}
-
-function tick(){
-  window.requestAnimationFrame(tick);
-
-  update();
-  render();
-}
-
-function update(){
-
-}
-
-function render(){
-  data.draw(ctx);
-}
-
-function Tile(x, y){
-
-  var x = x, y = y;
-
-  var tile = Tile.BLANK;
-
-  if(tile==null){
-
-    var _c = document.createElement("canvas");
-    _c.width = _c.height = 100;
-    _ctx = _c.getContext("2d");
-
-    _ctx.fillStyle = "skyblue";
-    _ctx.lineWidth = 4;
-    _ctx.strokeStyle = "white";
-
-    _ctx.fillRect(0, 0, 100, 100);
-    Tile.BLANK = new Image();
-    Tile.BLANK.src = _c.toDataURL();
-    
-    _ctx.fillRect(0, 0, 100, 100);
-    _ctx.beginPath();
-    _ctx.arc(50, 50, 30, 0, 2*Math.PI);
-    _ctx.stroke();
-    Tile.NOUGHT = new Image();
-    Tile.NOUGHT.src = _c.toDataURL();
-
-    tile = Tile.NOUGHT;
-  }
-
-  this.update = function(){
-
-  }
-
-  this.draw = function(ctx){
-    ctx.drawImage(tile, x, y);
-  }
-}
-
-</script>
