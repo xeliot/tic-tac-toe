@@ -19,5 +19,8 @@
     </div>
 
     <a href="tictactoe.html">PLAY AGAIN!</a>
+
+    <script src="game.js"></script>
+    
   </body>
 </html>
