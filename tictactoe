@@ -18,7 +18,7 @@
       <canvas id="canvas9" width="50" height="50" onclick="loop(9)"></canvas>
     </div>
 
-    <a href="tictactoe.html">PLAY AGAIN!</a>
+    <a href="tictactoe">PLAY AGAIN!</a>
 
     <script src="game.js"></script>
     
