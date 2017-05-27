@@ -12,9 +12,28 @@ body
 canvas
 {
     background: skyblue;
+    -webkit-transition: -webkit-transform 2s;
+}
+
+canvas:hover
+{
+    width: 51px;
+    height: 49px;
 }
 
 #canvasDiv
 {
     margin: 150px auto 40px;
+}
+
+#reloadButton
+{
+    text-decoration: none;
+    color:black;
+    font-family: 20px Tahoma;
+}
+
+#reloadButton:hover
+{
+    font-size: 22px;
 }
