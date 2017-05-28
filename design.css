@@ -13,12 +13,12 @@ body
 canvas
 {
     background: skyblue;
-    -webkit-transition: -webkit-transform 2s;
+    -webkit-transition: opacity 1s;
 }
 
 canvas:hover
 {
-    background: #31f7bb;
+    opacity: 0.5;
 }
 
 #canvasDiv
@@ -31,6 +31,8 @@ canvas:hover
     text-decoration: none;
     color:white;
     font-family: 20px Tahoma;
+    -webkit-transition: font-size 0.2s;
+
 }
 
 #reloadButton:hover
