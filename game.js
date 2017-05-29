@@ -6,3 +6,7 @@ for(var i=1; i<10; i++) ctx[i] = button[i].getContext();
 
 var bDisabled = []; //stores the availability of the button
 for(var i=1; i<10; i++) bDisabled[i] = false; //all buttons are enabled in the beginning
+
+var isResult = false;
+var content = [];
+
