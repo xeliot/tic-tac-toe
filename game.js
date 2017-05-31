@@ -16,11 +16,12 @@ function loop(x)
 {
     if(!bDisabled[x]){ //button does not currently contain X or O and therefore is enabled.
         bDisabled[x] = true; //button now contains something
-        console.log("Button pressed.");
-        content[x] = 'x';
+        //console.log("Button pressed.");
         
         button[x].style.webkitTransform = "rotateY(180deg)";
         
+        content[x] = 'x';
+
         setTimeout(function(){
             ctx[x].lineWidth = 3;
             ctx[x].beginPath();
