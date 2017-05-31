@@ -12,7 +12,8 @@ body
 
 canvas
 {
-    background: skyblue;
+    background-size: 100% 100%;
+    background-image: url("http://sr.photos2.fotosearch.com/bthumb/UNC/UNC304/u10494504.jpg");
     -webkit-transition: -webkit-transform 1s;
 }
 
@@ -28,6 +29,8 @@ canvas:hover
 
 #reloadButton
 {
+    border: 1px solid #fff;
+    padding: 5px;
     text-decoration: none;
     color:white;
     font-family: 20px Tahoma;
