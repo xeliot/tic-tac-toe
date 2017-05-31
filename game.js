@@ -2,7 +2,7 @@ var button = []; //stores the canvases
 for(var i=1; i<10; i++) button[i] = document.getElementById('canvas'+i);
 
 var ctx = []; //stores the context of the canvases
-for(var i=1; i<10; i++) ctx[i] = button[i].msGetInputContext;
+for(var i=1; i<10; i++) ctx[i] = button[i].getContext('2d');
 
 var bDisabled = []; //stores the availability of the button
 for(var i=1; i<10; i++) bDisabled[i] = false; //all buttons are enabled in the beginning
@@ -18,5 +18,17 @@ function loop(x)
         content[x] = 'x';
         
         button[x].style.webkitTransform = "rotateY(180deg)";
+
+        setTimeout(function(){
+            ctx[x].lineWidth = 3;
+            ctx[x].beginPath();
+            ctx[x].moveTo(10, 10);
+            ctx[x].lineTo(90, 90);
+            ctx[x].moveTo(90, 10);
+            ctx[x].lineTo(10, 90);
+            ctx[x].stroke();
+            ctx[x].closePath();
+        }, 300);
+
     }
 }
