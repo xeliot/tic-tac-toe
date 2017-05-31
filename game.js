@@ -26,10 +26,10 @@ function loop(x)
             setTimeout(function(){
                 ctx[x].lineWidth = 3;
                 ctx[x].beginPath();
-                ctx[x].moveTo(10, 10);
-                ctx[x].lineTo(90, 90);
-                ctx[x].moveTo(90, 10);
-                ctx[x].lineTo(10, 90);
+                ctx[x].moveTo(15, 15);
+                ctx[x].lineTo(85, 85);
+                ctx[x].moveTo(85, 15);
+                ctx[x].lineTo(15, 85);
                 ctx[x].stroke();
                 ctx[x].closePath();
             }, 300);
@@ -39,7 +39,7 @@ function loop(x)
             setTimeout(function(){
                 ctx[x].lineWidth = 3;
                 ctx[x].beginPath();
-                ctx[x].arc(button[x].width/2, button[x].height/2, 45, 0, 2*Math.PI, false);
+                ctx[x].arc(button[x].width/2, button[x].height/2, 40, 0, 2*Math.PI, false);
                 ctx[x].stroke();
                 ctx[x].closePath();
             }, 300);
