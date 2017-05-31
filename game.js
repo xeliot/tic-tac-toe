@@ -10,6 +10,8 @@ for(var i=1; i<10; i++) bDisabled[i] = false; //all buttons are enabled in the b
 var isResult = false;
 var content = [];
 
+var xTurn = true; //X:true O:false
+
 function loop(x)
 {
     if(!bDisabled[x]){ //button does not currently contain X or O and therefore is enabled.
@@ -18,7 +20,7 @@ function loop(x)
         content[x] = 'x';
         
         button[x].style.webkitTransform = "rotateY(180deg)";
-
+        
         setTimeout(function(){
             ctx[x].lineWidth = 3;
             ctx[x].beginPath();
