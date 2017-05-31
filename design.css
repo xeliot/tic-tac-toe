@@ -30,15 +30,18 @@ canvas:hover
 #reloadButton
 {
     border: 1px solid #000;
+    border-width: 2px;
     padding: 5px;
     text-decoration: none;
     color:black;
-    font-family: 20px Tahoma;
-    -webkit-transition: font-size 0.2s;
+    font-family: "Courier";
+    font-weight: bold;
+    font-size: 20px;
+    -webkit-transition: font-size 0.1s;
 
 }
 
 #reloadButton:hover
 {
-    font-size: 22px;
+    font-size: 24px;
 }
