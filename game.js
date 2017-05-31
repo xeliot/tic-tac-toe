@@ -36,11 +36,11 @@ function loop(x)
         }else{
             content[x] = 'o';
 
-            setTimeOut(function(){
+            setTimeout(function(){
                 ctx[x].lineWidth = 3;
                 ctx[x].beginPath();
                 ctx[x].arc(button[x].width/2, button[x].height/2, 45, 0, 2*Math.PI, false);
-                ctx[x].stroke;
+                ctx[x].stroke();
                 ctx[x].closePath();
             }, 300);
         }
