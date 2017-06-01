@@ -46,5 +46,10 @@ function loop(x)
         }
 
         xTurn = !xTurn;
+        if(xTurn){
+            document.getElementById('whoseturn').innerHTML = "X Turn";
+        }else{
+            document.getElementById('whoseturn').innerHTML = "O Turn";
+        }
     }
 }
