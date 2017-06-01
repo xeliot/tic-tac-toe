@@ -49,8 +49,8 @@
 {
     width: 80px;
     height: 80px;
-    border-left: 5px solid darkturquoise;
-    border-bottom: 5px solid darkturquoise;
+    border-left: 5px solid #51688e;
+    border-bottom: 5px solid #51688e;
     top: 5px; left: 5px;
     animation: anticlockwisespin 2s linear 3;
 }
