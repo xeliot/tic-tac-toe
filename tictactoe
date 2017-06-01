@@ -7,6 +7,8 @@
 
   <body>
     <div id="canvasDiv">
+      <p id="whoseturn">X Turn</p>
+      <br />
       <canvas id="canvas1" width="100" height="100" onclick="loop(1)"></canvas> <!-- THIS NEWLINE IS TREATED AS A SPACE -->
       <canvas id="canvas2" width="100" height="100" onclick="loop(2)"></canvas>
       <canvas id="canvas3" width="100" height="100" onclick="loop(3)"></canvas><br />
