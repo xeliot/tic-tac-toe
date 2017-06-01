@@ -53,3 +53,23 @@ function loop(x)
         }
     }
 }
+
+function horizontalCheckWin()
+{
+    //check for 3 in a row horizontally
+}
+
+function verticalCheckWin()
+{
+    //check for 3 in a row vertically
+}
+
+function negDiagonalCheckWin()
+{
+    //check for 3 in a row diagonally downwards
+}
+
+function posDiagonalCheckWin()
+{
+    //check for 3 in a row diagonally upwards
+}
