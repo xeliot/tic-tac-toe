@@ -9,7 +9,7 @@
             window.open("tictactoe", "_self");
         }else{
             loading = loading + 1;
-            if(loading == 50) {
+            if(loading == 55) {
                 preload.style.animation = "fadeout 1s ease";
             }
         }
