@@ -47,6 +47,19 @@ function loop(x)
         }
 
         console.log(checkWin());
+        xCheck = xTurn;
+        if(checkWin()){
+            console.log("WINNER");
+            if(xCheck){
+                setTimeout(function() {
+                    alert("X has Won!");
+                }, 700);
+            }else{
+                setTimeout(function() {
+                    alert("O has Won!");
+                }, 700);
+            }
+        }
 
         xTurn = !xTurn;
         if(xTurn){
