@@ -15,7 +15,6 @@ var xTurn = true; //X:true O:false
 
 function loop(x)
 {
-    console.log(content[1]);
     if(!bDisabled[x]){ //button does not currently contain X or O and therefore is enabled.
         bDisabled[x] = true; //button now contains something
         //console.log("Button pressed.");
@@ -47,10 +46,7 @@ function loop(x)
             }, 300);
         }
 
-        console.log(horizontalCheckWin());
-        console.log(verticalCheckWin());
-        console.log(negDiagonalCheckWin());
-        console.log(posDiagonalCheckWin());
+        console.log(checkWin());
 
         xTurn = !xTurn;
         if(xTurn){
@@ -64,7 +60,7 @@ function loop(x)
 //check if current board state is a win
 function checkWin()
 {
-
+    return(horizontalCheckWin() || verticalCheckWin() || negDiagonalCheckWin() || posDiagonalCheckWin());
 }
 
 //check for 3 in a row horizontally
