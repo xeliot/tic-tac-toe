@@ -48,6 +48,7 @@ function loop(x)
         }
 
         console.log(horizontalCheckWin());
+        console.log(verticalCheckWin());
 
         xTurn = !xTurn;
         if(xTurn){
@@ -69,9 +70,15 @@ function horizontalCheckWin()
     return false;
 }
 
+//check for 3 in a row vertically
 function verticalCheckWin()
 {
-    //check for 3 in a row vertically
+    if( (content[1]==content[4] && content[4]==content[7] && content[1]!='n') 
+    || (content[2]==content[5] && content[5]==content[8] && content[2]!='n') 
+    || (content[3]==content[6] && content[6]==content[9] && content[3]!='n')){
+        return true;
+    }
+    return false;
 }
 
 function negDiagonalCheckWin()
