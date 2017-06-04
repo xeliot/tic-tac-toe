@@ -9,11 +9,13 @@ for(var i=1; i<10; i++) bDisabled[i] = false; //all buttons are enabled in the b
 
 var isResult = false;
 var content = [];
+for (var i=1; i<10; i++) content[i] = 'n';
 
 var xTurn = true; //X:true O:false
 
 function loop(x)
 {
+    console.log(content[1]);
     if(!bDisabled[x]){ //button does not currently contain X or O and therefore is enabled.
         bDisabled[x] = true; //button now contains something
         //console.log("Button pressed.");
@@ -45,6 +47,8 @@ function loop(x)
             }, 300);
         }
 
+        console.log(horizontalCheckWin());
+
         xTurn = !xTurn;
         if(xTurn){
             document.getElementById('whoseturn').innerHTML = "X Turn";
@@ -54,9 +58,15 @@ function loop(x)
     }
 }
 
+//check for 3 in a row horizontally
 function horizontalCheckWin()
 {
-    //check for 3 in a row horizontally
+    if( (content[1]==content[2] && content[2]==content[3] && content[1]!='n') 
+    || (content[4]==content[5] && content[5]==content[6] && content[4]!='n') 
+    || (content[7]==content[8] && content[8]==content[9] && content[7]!='n')){
+        return true;
+    }
+    return false;
 }
 
 function verticalCheckWin()
