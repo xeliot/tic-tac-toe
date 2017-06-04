@@ -50,6 +50,7 @@ function loop(x)
         console.log(horizontalCheckWin());
         console.log(verticalCheckWin());
         console.log(negDiagonalCheckWin());
+        console.log(posDiagonalCheckWin());
 
         xTurn = !xTurn;
         if(xTurn){
@@ -91,7 +92,11 @@ function negDiagonalCheckWin()
     return false;
 }
 
+//check for 3 in a row diagonally upwards
 function posDiagonalCheckWin()
 {
-    //check for 3 in a row diagonally upwards
+    if(content[3]==content[5] && content[5]==content[7] && content[3]!='n'){
+        return true;
+    }
+    return false;
 }
