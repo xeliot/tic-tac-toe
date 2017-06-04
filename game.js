@@ -61,6 +61,12 @@ function loop(x)
     }
 }
 
+//check if current board state is a win
+function checkWin()
+{
+
+}
+
 //check for 3 in a row horizontally
 function horizontalCheckWin()
 {
