@@ -12,9 +12,103 @@ var content = [];
 for (var i=1; i<10; i++) content[i] = 'n';
 
 var xTurn = true; //X:true O:false
+//var waiting = false;
+var waiting = false;
+
+
+var HttpClient = function() {
+    this.get = function(aUrl, aCallback) {
+        var anHttpRequest = new XMLHttpRequest();
+        anHttpRequest.onreadystatechange = function() { 
+            if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                aCallback(anHttpRequest.responseText);
+        }
+
+        anHttpRequest.open( "GET", aUrl, false );            
+        anHttpRequest.send( null );
+    }
+}
+
+var client = new HttpClient();
+client.get("http://192.168.0.105:8080/join", function(response) {
+    console.log(response);
+    console.log(JSON.parse(response)["waiting"]);
+    if(JSON.parse(response)["waiting"]==0){
+        waiting = false;
+    }else if(JSON.parse(response)["waiting"]==1){
+        waiting = true;
+    }
+});
+
+/*
+var join = new XMLHttpRequest
+var jurl = "http://192.168.0.105:8080/join";
+join.open("POST", jurl, true);
+join.setRequestHeader("Content-type", "application/json");
+join.onload = function () {
+    console.log(response);
+}
+var data = JSON.stringify({"name": "Dave"})
+*/
+
+/*
+while(waiting)
+{
+    setTimeout(function(){
+        var waitingClient = new HttpClient();
+        waitingClient.get("http://192.168.0.105:8080/ask", function(response) {
+            console.log(response);
+            if(JSON.parse(response)["coordinate"]!=-1){
+                waiting = false;
+            }
+        });
+    }, 10000);
+}
+*/
+
+if(waiting){
+    alert("You are the Circle");
+}else{
+    alert("You are the Cross");
+}
+
+(function(){
+    var waitingClient = new HttpClient();
+        waitingClient.get("http://192.168.0.105:8080/ask", function(response) {
+            console.log(response);
+            if(JSON.parse(response)["coordinate"]!=-1){
+                waiting = false;
+            }
+    });
+    setTimeout(arguments.callee, 15000);
+})();
 
 function loop(x)
 {
+    var xhr = new XMLHttpRequest();
+    var url = "http://192.168.0.105:8080/send";
+    xhr.open("POST", url, true);
+    xhr.setRequestHeader("Content-type", "application/json");
+    xhr.onload = function () {
+        var status = xhr.status;
+        var data = xhr.response;
+        var datatext = xhr.responseText;
+        console.log(status);
+        console.log(data);
+        console.log(datatext);
+    }
+    /*
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            var json = JSON.parse(xhr.responseText);
+            console.log(json.email + ", " + json.password);
+        }
+    };
+    */
+    var data = JSON.stringify({"coordinate": x, "isX": xTurn});
+    xhr.send(data);
+    waiting = true;
+
     if(!bDisabled[x]){ //button does not currently contain X or O and therefore is enabled.
         bDisabled[x] = true; //button now contains something
         //console.log("Button pressed.");
