@@ -14,6 +14,7 @@ for (var i=1; i<10; i++) content[i] = 'n';
 var xTurn = true; //X:true O:false
 //var waiting = false;
 var waiting = false;
+var isCross = false;
 
 
 var HttpClient = function() {
@@ -34,8 +35,10 @@ client.get("http://192.168.0.105:8080/join", function(response) {
     console.log(response);
     console.log(JSON.parse(response)["waiting"]);
     if(JSON.parse(response)["waiting"]==0){
+        isCross = true;
         waiting = false;
     }else if(JSON.parse(response)["waiting"]==1){
+        isCross = false;
         waiting = true;
     }
 });
@@ -67,9 +70,11 @@ while(waiting)
 */
 
 if(waiting){
-    alert("You are the Circle");
+    //alert("You are the Circle");
+    document.getElementById('whoseturn').innerHTML = "You are Circle; X Turn";
 }else{
-    alert("You are the Cross");
+    //alert("You are the Cross");
+    document.getElementById('whoseturn').innerHTML = "You are Cross; X Turn";
 }
 
 (function(){
@@ -77,11 +82,69 @@ if(waiting){
         waitingClient.get("http://192.168.0.105:8080/ask", function(response) {
             console.log(response);
             if(JSON.parse(response)["coordinate"]!=-1){
+                update(JSON.parse(response)["coordinate"]);
                 waiting = false;
             }
     });
     setTimeout(arguments.callee, 15000);
 })();
+
+function update(x)
+{
+    if(!bDisabled[x]){ //button does not currently contain X or O and therefore is enabled.
+        bDisabled[x] = true; //button now contains something
+        //console.log("Button pressed.");
+        
+        button[x].style.webkitTransform = "rotateY(180deg)";
+        
+        if(xTurn){
+            content[x] = 'x';
+
+            setTimeout(function(){
+                ctx[x].lineWidth = 3;
+                ctx[x].beginPath();
+                ctx[x].moveTo(15, 15);
+                ctx[x].lineTo(85, 85);
+                ctx[x].moveTo(85, 15);
+                ctx[x].lineTo(15, 85);
+                ctx[x].stroke();
+                ctx[x].closePath();
+            }, 300);
+        }else{
+            content[x] = 'o';
+
+            setTimeout(function(){
+                ctx[x].lineWidth = 3;
+                ctx[x].beginPath();
+                ctx[x].arc(button[x].width/2, button[x].height/2, 40, 0, 2*Math.PI, false);
+                ctx[x].stroke();
+                ctx[x].closePath();
+            }, 300);
+        }
+
+        console.log(checkWin());
+        xCheck = xTurn;
+        if(checkWin()){
+            console.log("WINNER");
+            if(xCheck){
+                setTimeout(function() {
+                    alert("X has Won!");
+                }, 700);
+            }else{
+                setTimeout(function() {
+                    alert("O has Won!");
+                }, 700);
+            }
+        }
+
+        xTurn = !xTurn;
+        if(xTurn){
+            document.getElementById('whoseturn').innerHTML = "X Turn";
+        }else{
+            document.getElementById('whoseturn').innerHTML = "O Turn";
+        }
+    }
+}
 
 function loop(x)
 {
