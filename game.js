@@ -43,32 +43,6 @@ client.get("http://192.168.0.105:8080/join", function(response) {
     }
 });
 
-/*
-var join = new XMLHttpRequest
-var jurl = "http://192.168.0.105:8080/join";
-join.open("POST", jurl, true);
-join.setRequestHeader("Content-type", "application/json");
-join.onload = function () {
-    console.log(response);
-}
-var data = JSON.stringify({"name": "Dave"})
-*/
-
-/*
-while(waiting)
-{
-    setTimeout(function(){
-        var waitingClient = new HttpClient();
-        waitingClient.get("http://192.168.0.105:8080/ask", function(response) {
-            console.log(response);
-            if(JSON.parse(response)["coordinate"]!=-1){
-                waiting = false;
-            }
-        });
-    }, 10000);
-}
-*/
-
 if(waiting){
     //alert("You are the Circle");
     document.getElementById('whoseturn').innerHTML = "You are Circle; X Turn";
