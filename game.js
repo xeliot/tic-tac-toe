@@ -31,7 +31,7 @@ var HttpClient = function() {
 }
 
 var client = new HttpClient();
-client.get("http://192.168.0.105:8080/join", function(response) {
+client.get("http://192.168.0.107:8080/join", function(response) {
     console.log(response);
     console.log(JSON.parse(response)["waiting"]);
     if(JSON.parse(response)["waiting"]==0){
@@ -53,7 +53,7 @@ if(waiting){
 
 (function(){
     var waitingClient = new HttpClient();
-        waitingClient.get("http://192.168.0.105:8080/ask", function(response) {
+        waitingClient.get("http://192.168.0.107:8080/ask", function(response) {
             console.log(response);
             if(JSON.parse(response)["coordinate"]!=-1){
                 update(JSON.parse(response)["coordinate"]);
@@ -123,7 +123,7 @@ function update(x)
 function loop(x)
 {
     var xhr = new XMLHttpRequest();
-    var url = "http://192.168.0.105:8080/send";
+    var url = "http://192.168.0.107:8080/send";
     xhr.open("POST", url, true);
     xhr.setRequestHeader("Content-type", "application/json");
     xhr.onload = function () {
